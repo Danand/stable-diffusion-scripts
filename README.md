@@ -113,7 +113,7 @@ Sets the number of repeats per each subdirectory of `images` based on an interac
 - "Repeats" is the number used to set up the weight of each training subject subset of images.
 - "Epochs" is the multiplier of total steps. The trained LoRA can be saved as a ready-to-use model on each epoch.
 
-### Still can't Understand the difference between "Repeats", "Steps", and "Epochs"?
+### Still can't understand the difference between "Repeats", "Steps", and "Epochs"?
 
 Take a look at the training images folder:
 
