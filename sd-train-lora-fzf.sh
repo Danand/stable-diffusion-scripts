@@ -42,7 +42,7 @@ read -er -p "Enter training seed: " -i "12345" seed
 read -er -p "Enter network dim: " -i "128" network_dim
 read -er -p "Enter network alpha: " -i "128" network_alpha
 read -er -p "Enter learning rate: " -i "0.0001" learning_rate
-read -er -p "Enter unet learning rate: " -i "0.0001" unet_lr
+read -er -p "Enter U-Net learning rate: " -i "0.0001" unet_lr
 read -er -p "Enter text encoder learning rate: " -i "5e-5" text_encoder_lr
 read -er -p "Enter noise offset: " -i "0.0" noise_offset
 

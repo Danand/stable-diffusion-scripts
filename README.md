@@ -92,7 +92,7 @@ Runs an interactive launch of LoRA training via `kohya_ss` scripts. The steps in
 8. Enter the network dimension (default: `128`).
 9. Enter the network alpha (default: `128`).
 10. Enter the learning rate (default: `0.0001`).
-11. Enter the UNet learning rate (default: `0.0001`).
+11. Enter the U-Net learning rate (default: `0.0001`).
 12. Enter the text encoder learning rate (default: `5e-5`).
 13. Enter the noise offset (default: `0.0`).
 14. Choose a sampler (a list of compatible samplers will be provided by the script).
@@ -103,7 +103,7 @@ Runs an interactive launch of LoRA training via `kohya_ss` scripts. The steps in
 sd-train-subsets-weights-edit.py
 ```
 
-Sets the number of repeats per each subdirectory of `images` based on an interactively entered "weight."
+Sets the number of repeats per each subdirectory of `images` based on an interactively entered "weight".
 
 ## FAQ: LoRA Training
 
@@ -136,16 +136,16 @@ Now, each folder is equally important for training the subject `SubjectName`, an
 
 The dataset (or training images) should:
 
-- be of the same size[^1]
+- be of the same size
 - have the same size as specified on the launch of training
 - be placed in subset folder(s) named `N_SubjectName`, where:
   - `N` is the number of repeats for this folder
   - `SubjectName` is a unique tag for triggering this subject with a prompt
 - be provided with caption files (same name as the image name but with a `.txt` extension)
 
-You can use the [**Dataset Tag Editor** (for **A1111**)](https://github.com/toshiaki1729/stable-diffusion-webui-dataset-tag-editor) for interrogating captions.
+_Same size of images_ – not necessarily. `kohya_ss` scripts support ["buckets"](https://github.com/bmaltais/kohya_ss/wiki/LoRA-training-parameters#enable-buckets): cropping input images in tiles automatically while learning; but it's slower.
 
-[^1]: Not necessarily. `kohya_ss` scripts support ["buckets"](https://github.com/bmaltais/kohya_ss/wiki/LoRA-training-parameters#enable-buckets): cropping input images in tiles automatically while learning; but it's slower.
+You can use the [**Dataset Tag Editor** (for **A1111**)](https://github.com/toshiaki1729/stable-diffusion-webui-dataset-tag-editor) for interrogating captions.
 
 ### How many Steps are required for training LoRA?
 
@@ -195,7 +195,7 @@ Start with `0.0001` and then decrease the value by 2 times.
 - `0.000025`
 - ...
 
-### Which UNet Learning Rate to choose for training LoRA?
+### Which U-Net Learning Rate to choose for training LoRA?
 
 Try to set it as equal to "learning rate" or less.
 
