@@ -79,6 +79,7 @@ cd "${KOHYA_SS_PATH}"
 source venv/bin/activate
 
 export PYTORCH_ENABLE_MPS_FALLBACK=1
+export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0
 
 accelerate launch \
   --num_cpu_threads_per_process="8" \
@@ -114,4 +115,5 @@ accelerate launch \
   --bucket_no_upscale \
   --noise_offset="${noise_offset}" \
   --network_train_unet_only \
+  --lowram \
   --sample_sampler="${sampler}"
