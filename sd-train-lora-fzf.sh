@@ -46,28 +46,6 @@ read -er -p "Enter U-Net learning rate: " -i "0.0001" unet_lr
 read -er -p "Enter text encoder learning rate: " -i "5e-5" text_encoder_lr
 read -er -p "Enter noise offset: " -i "0.0" noise_offset
 
-sampler="$( \
-  (
-    echo "ddim"
-    echo "pndm"
-    echo "lms"
-    echo "euler"
-    echo "euler_a"
-    echo "heun"
-    echo "dpm_2"
-    echo "dpm_2_a"
-    echo "dpmsolver"
-    echo "dpmsolver++"
-    echo "dpmsingle"
-    echo "k_lms"
-    echo "k_euler"
-    echo "k_euler_a"
-    echo "k_dpm_2"
-    echo "k_dpm_2_a"
-  ) \
-  | fzf --header "Choose training script" \
-)"
-
 SCRIPT_PATH="$(realpath "${BASH_SOURCE}")"
 SCRIPT_DIR="$(realpath "$(dirname "${SCRIPT_PATH}")")"
 
@@ -115,5 +93,4 @@ accelerate launch \
   --bucket_no_upscale \
   --noise_offset="${noise_offset}" \
   --network_train_unet_only \
-  --lowram \
-  --sample_sampler="${sampler}"
+  --lowram

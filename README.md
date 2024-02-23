@@ -95,7 +95,6 @@ Runs an interactive launch of LoRA training via `kohya_ss` scripts. The steps in
 11. Enter the U-Net learning rate (default: `0.0001`).
 12. Enter the text encoder learning rate (default: `5e-5`).
 13. Enter the noise offset (default: `0.0`).
-14. Choose a sampler (a list of compatible samplers will be provided by the script).
 
 #### Set up weights of images for LoRA training
 
@@ -221,10 +220,6 @@ Not necessarily. But it's often used in tutorials for learning rate values. I do
 ### Which Noise Offset to choose for training LoRA?
 
 Default is `0.0`, but some tutorials suggest `0.1` for more contrast in images generated with trained LoRA. However, I didn't notice so. Generated images were even paler with noise offset `0.1` than with noise offset `0.0`.
-
-### Which sampler to choose for training LoRA?
-
-I preferred `dpm_2`. I think it takes fewer steps for generating quite good images with the `dpm_2` sampler.
 
 ## References
 
