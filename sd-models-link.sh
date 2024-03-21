@@ -96,6 +96,7 @@ if [ -d "${A1111_PATH}" ]; then
   link ./upscale_models "${A1111_PATH}/models/ESRGAN" "pt"
   link ./upscale_models "${A1111_PATH}/models/ESRGAN" "pth"
   link ./repos/ControlNet-v1-1 "${A1111_PATH}/extensions/sd-webui-controlnet/models" "pth"
+  link ./repos/IP-Adapter "${A1111_PATH}/extensions/sd-webui-controlnet/models" "pth"
   link ./repos/sd_control_collection "${A1111_PATH}/extensions/sd-webui-controlnet/models" "safetensors"
   link-dirs ./depth-maps "${A1111_PATH}/extensions/sd-webui-depth-lib/maps"
 fi
