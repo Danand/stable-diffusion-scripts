@@ -45,6 +45,9 @@ read -er -p "Enter learning rate: " -i "0.0001" learning_rate
 read -er -p "Enter U-Net learning rate: " -i "0.0001" unet_lr
 read -er -p "Enter text encoder learning rate: " -i "5e-5" text_encoder_lr
 read -er -p "Enter noise offset: " -i "0.0" noise_offset
+read -er -p "Enter number of CPU threads: " -i "8" num_cpu_threads_per_process
+read -er -p "Enter train batch size: " -i "1" train_batch_size
+read -er -p "Save every N epochs: " -i "1" save_every_n_epochs
 
 SCRIPT_PATH="$(realpath "${BASH_SOURCE}")"
 SCRIPT_DIR="$(realpath "$(dirname "${SCRIPT_PATH}")")"
@@ -60,7 +63,7 @@ export PYTORCH_ENABLE_MPS_FALLBACK=1
 export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0
 
 accelerate launch \
-  --num_cpu_threads_per_process="8" \
+  --num_cpu_threads_per_process="${num_cpu_threads_per_process}" \
   "${training_script}" \
   --pretrained_model_name_or_path="${base_model}" \
   --train_data_dir="${project_path}/images" \
@@ -80,8 +83,8 @@ accelerate launch \
   --network_module="networks.lora" \
   --no_half_vae \
   --lr_scheduler="cosine_with_restarts" \
-  --train_batch_size="1" \
-  --save_every_n_epochs="1" \
+  --train_batch_size="${train_batch_size}" \
+  --save_every_n_epochs="${save_every_n_epochs}" \
   --mixed_precision="no" \
   --save_precision="float" \
   --caption_extension=".txt" \
