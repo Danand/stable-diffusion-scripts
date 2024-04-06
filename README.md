@@ -31,6 +31,13 @@ These are my scripts for using Stable Diffusion.
    echo "export PATH=\"\${PATH}:$(pwd)\"" >> ~/.bashrc
    ```
 
+3. Change mode of scripts to executable:
+
+   ```bash
+   cd stable-diffusion-scripts && \
+   chmod +x *.sh
+   ```
+
 ## Usage
 
 ### Model Management
