@@ -102,3 +102,20 @@ if [ -d "${A1111_PATH}" ]; then
   link ./repos/sd_control_collection "${A1111_PATH}/extensions/sd-webui-controlnet/models" "safetensors"
   link-dirs ./depth-maps "${A1111_PATH}/extensions/sd-webui-depth-lib/maps"
 fi
+
+if [ -z "${FORGE_PATH}" ]; then
+  FORGE_PATH="${HOME}/stable-diffusion-webui-forge"
+fi
+
+if [ -d "${FORGE_PATH}" ]; then
+  link ./checkpoints "${FORGE_PATH}/models/Stable-diffusion" "ckpt"
+  link ./checkpoints "${FORGE_PATH}/models/Stable-diffusion" "safetensors"
+  link ./vae "${FORGE_PATH}/models/VAE" "safetensors"
+  link ./clip "${FORGE_PATH}/models/VAE" "safetensors"
+  link ./loras "${FORGE_PATH}/models/Lora" "safetensors"
+  link ./embeddings "${FORGE_PATH}/embeddings" "pt"
+  link ./embeddings "${FORGE_PATH}/embeddings" "safetensors"
+  link ./upscale_models "${FORGE_PATH}/models/ESRGAN" "safetensors"
+  link ./upscale_models "${FORGE_PATH}/models/ESRGAN" "pt"
+  link ./upscale_models "${FORGE_PATH}/models/ESRGAN" "pth"
+fi
