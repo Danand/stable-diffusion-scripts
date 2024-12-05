@@ -79,6 +79,8 @@ if [ -d "${COMFYUI_PATH}" ]; then
   link ./upscale_models "${COMFYUI_PATH}/models/upscale_models" "safetensors"
   link ./upscale_models "${COMFYUI_PATH}/models/upscale_models" "pt"
   link ./upscale_models "${COMFYUI_PATH}/models/upscale_models" "pth"
+  link ./clip "${COMFYUI_PATH}/models/clip" "safetensors"
+  link ./vae "${COMFYUI_PATH}/models/vae" "safetensors"
 fi
 
 if [ -z "${A1111_PATH}" ]; then
